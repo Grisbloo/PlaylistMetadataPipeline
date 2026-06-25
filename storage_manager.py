@@ -26,3 +26,20 @@ def initialize_database():
     """)
     connection.commit()
     connection.close()
+
+def log_track(song_id, title, artist, album, year, duration, downloaded):
+    connection = sqlite3.connect("MetaDataLog.db")
+    #Cursor is like a messenger
+    cursor = connection.cursor()
+    # Pushing the values from the python *ignoring how the song is formatted if its weirdly formatted* into the table
+    # INSERT OR IGNORE INTO tells the computer to simply add or skip (if its a duplicate)
+    cursor.execute("""
+    INSERT OR IGNORE INTO Log (SongId, Title, Artist, Album, Year, Duration, Downloaded)
+                   VALUES (?, ?, ?, ?, ?, ?, ?)              
+    """, (song_id, title, artist, album, year, duration, downloaded))
+    if (cursor.rowcount == 1):
+        print(f"{title} was successfully added")
+    else:
+        print(f"{title} is a duplicate and was skipped")
+    connection.commit()
+    connection.close()
