@@ -35,7 +35,7 @@ def main ():
     finally:
         driver.quit()
 
-    def wait_for_download():
+    def wait_for_download(download_folder_path):
         i = 0
         while(i < 30):
             #wait for one second
@@ -43,12 +43,9 @@ def main ():
             files_in_folder = os.listdir(download_folder_path)
             for file in files_in_folder:
                 if file.endswith(".csv") and not file.endswith(".crdownload"):
-                # The while loop is over we have our file
-                    return download
-                elif not file.endswith(".crdownload"):
-                # There was an issue downloading the file
-                else:
-                    # loop again 
-                    i+= 1
-        else:
-        #the file should be downloaded 
+                # The while loop is over once we have our file
+                    return file
+            i += 1
+                # loop again 
+        return None
+        #the file was not found in the 30 seconds 
