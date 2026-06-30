@@ -14,10 +14,10 @@ def main ():
     playlist_link = input("Spotify playlist or song URL: ")
     #turning on the database
     storage_manager.initialize_database()
-    #if the download folder exists dont worry about it, if it doesnt make it
-    os.makedirs(download_folder_path, exist_ok=True)
     #grab the folder to download to
     download_folder_path = os.path.join(os.getcwd(), "downloads")
+    #if the download folder exists dont worry about it, if it doesnt make it
+    os.makedirs(download_folder_path, exist_ok=True)
     #turning on the browser factory to get me a browser
     driver = browser_factory.BrowserFactory.create_driver(download_folder_path=download_folder_path)
     #if something doesnt work, rather than just crashing, close out of the program
@@ -82,3 +82,6 @@ def wait_for_download(download_folder_path):
             # loop again 
     return None
     #the file was not found in the 30 seconds 
+
+if __name__ == "__main__":
+    main()
