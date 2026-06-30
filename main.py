@@ -61,6 +61,13 @@ def main ():
         return None
         #the file was not found in the 30 seconds 
     file_path = os.path.join(download_folder_path,downloaded_file)
+    year_raw = row["Album Date"][:4] if row["Album Date"] else None
+    def duration_to_sectonds(duration_str):
+        parts = duration_str.split(":")
+        if len(parts) == 2:
+            minutes, seconds = parts
+            return int(minutes) * 60 + int(seconds)
+        return None
     with open(file_path, "r", encoding="utf-8") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
@@ -69,8 +76,8 @@ def main ():
             title = row["Song"]
             artist = row["Artist"]
             album = row["Album"]
-            year = int(row["Album Date"][:4])
-            duration = row["Duration"]
+            year = int(year_raw) if year_raw and year_raw.isdigit() else None
+            duration = duration_to_sectonds(row["Duration"])
             isrc = row["ISRC"]
             downloaded = False
             storage_manager.log_track(song_id, title, artist, album, year, duration, isrc, downloaded)

@@ -36,7 +36,7 @@ def log_track(song_id, title, artist, album, year, duration, isrc, downloaded):
     # Pushing the values from the python *ignoring how the song is formatted if its weirdly formatted* into the table
     # INSERT OR IGNORE INTO tells the computer to simply add or skip (if its a duplicate)
     cursor.execute("""
-    INSERT OR IGNORE INTO Log (SongId, Title, Artist, Album, Year, Duration, isrc, Downloaded)
+    INSERT OR IGNORE INTO Log (SongId, Title, Artist, Album, Year, Duration, ISRC, Downloaded)
                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)              
     """, (song_id, title, artist, album, year, duration, isrc, downloaded))
     if (cursor.rowcount == 1):
