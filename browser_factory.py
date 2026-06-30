@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 class BrowserFactory:
     #This prevents python from making the function about itself and makes it a tool to be used
     @staticmethod
-    def create_driver(is_headless=True):
+    def create_driver(is_headless=True, download_folder_path =None):
         chrome_options = Options()
         if is_headless:
             #This prevents a ui from appearing when using the browser
