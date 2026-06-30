@@ -49,3 +49,16 @@ def main ():
                 # loop again 
         return None
         #the file was not found in the 30 seconds 
+    with open(file_path, "r", encoding="utf-8") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+
+            song_id = row["Spotify Track Id"]
+            title = row["Song"]
+            artist = row["Artist"]
+            album = row["Album"]
+            year = int(row["Album Date"][:4])
+            duration = row["Duration"]
+            isrc = row["ISRC"]
+            downloaded = False
+            storage_manager.log_track(song_id, title, artist, album, year, duration, isrc, downloaded)
