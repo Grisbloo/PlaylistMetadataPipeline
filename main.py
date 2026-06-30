@@ -14,25 +14,36 @@ def main ():
     playlist_link = input("Spotify playlist or song URL: ")
     #turning on the database
     storage_manager.initialize_database()
+    #grab the folder to download to
+    download_folder_path = os.path.join(os.getcwd(), "downloads")
     #turning on the browser factory to get me a browser
-    driver = browser_factory.BrowserFactory.create_driver()
+    driver = browser_factory.BrowserFactory.create_driver(download_folder_path=download_folder_path)
     #if something doesnt work, rather than just crashing, close out of the program
     try:
+        #Set up a wait timer in seconds
+               #To note: the entire amount of time does not need to pass
+        wait = WebDriverWait(driver, 10)
         #travel to the website url
         driver.get("https://www.chosic.com/spotify-playlist-exporter/")
-        #find the element we need
-        search_bar = driver.find_element(By.ID, "search-word")
-        #do something with that element
+        #find the element we need (search bar) and wait for it to be accessible
+        search_bar = wait.until(EC.element_to_be_clickable((By.ID, "search-word")))
+        #click on the search bar
+        search_bar.click()
+        #input the playlist link into the search bar
         search_bar.send_keys(playlist_link)
-        start_button = driver.find_element(By.ID, "analyze")
+        #find the element we need (Start Button) and wait for it to be accessible
+        start_button = wait.until(EC.element_to_be_clickable(By.ID, "analyze"))
+        #click on the start button
         start_button.click()
-        #set up a wait timer in seconds
-        wait = WebDriverWait(driver, 10)
-        #use the stopwatch to count down until the button is avaliable
-        #To note: the entire amount of time does not need to pass
+         #find the element we need (Export Button) and wait for it to be accessible
         exportCSV = wait.until(EC.element_to_be_clickable((By.ID, "export")))
+        #click on the export to csv button
         exportCSV.click()
     finally:
+        downloaded_file = download_folder_path = wait_for_download(download_folder_path)
+        driver.quit()
+    if downloaded_file is None:
+        print("Download timed out.")
         driver.quit()
 
     def wait_for_download(download_folder_path):
@@ -49,6 +60,7 @@ def main ():
                 # loop again 
         return None
         #the file was not found in the 30 seconds 
+    file_path = os.path.join(download_folder_path,downloaded_file)
     with open(file_path, "r", encoding="utf-8") as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:

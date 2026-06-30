@@ -13,5 +13,10 @@ class BrowserFactory:
             chrome_options.add_argument("--disable-gpu")
             #Allow chrome to run normally when using the browser
             chrome_options.add_argument("--no-sandbox")
+        if download_folder_path:
+            chrome_options.add_experimental_option("prefs", {
+                "download.default_directory": download_folder_path,
+                "download.prompt_for_download": False,
+            })
         driver = webdriver.Chrome(options = chrome_options)
         return driver
