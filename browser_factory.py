@@ -12,8 +12,8 @@ class BrowserFactory:
         edge_options.add_argument("--window-size=1920,1080")
         #Removal of the automation flags and banners
         edge_options.add_argument("--disable-blink-features=AutomationControlled")
-        edge_options.add_argument("excludeSwitches", ["enable-automation"])
-        edge_options.add_argument("useAutomationExtension", False)
+        edge_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        edge_options.add_experimental_option("useAutomationExtension", False)
         #This prevents the gpu from makign the webpage draw faster when using the browser
         edge_options.add_argument("--disable-gpu")
         #Allow edge to run normally when using the browser
