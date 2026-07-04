@@ -1,0 +1,76 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="1zz7GGVAC0RyXWySLAB4">
+    <mxGraphModel dx="946" dy="756" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="F-2aBOpN_DYDORKha2XI-4" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" value="User Enters Spotify&lt;br&gt;playlist link" vertex="1">
+          <mxGeometry height="60" width="120" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-10" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="Program travels to chosic.com&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="180" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-11" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="User Playlist is entered" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-12" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="Program waits for chosic to create a csv of metadata" vertex="1">
+          <mxGeometry height="60" width="120" x="540" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" value="Program downloads the csv and inputs it into the database" vertex="1">
+          <mxGeometry height="60" width="120" x="720" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-14" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#000000;" value="Scanned into the system via input()" vertex="1">
+          <mxGeometry height="60" width="120" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-18" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#000000;" value="Navigates using webdriver and selenium" vertex="1">
+          <mxGeometry height="60" width="120" x="90" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-17" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-19" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#000000;" value="Receives browser from browser factory" vertex="1">
+          <mxGeometry height="60" width="120" x="270" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-21" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#000000;" value="Identified elements by HTML Id" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-23" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" value="Fallback is waiting 30 seconds then safely erroring out" vertex="1">
+          <mxGeometry height="60" width="120" x="540" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-25" edge="1" parent="1" source="F-2aBOpN_DYDORKha2XI-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="F-2aBOpN_DYDORKha2XI-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-2aBOpN_DYDORKha2XI-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" value="Fallback is not seeing the temporary download file and safely erroring out" vertex="1">
+          <mxGeometry height="60" width="120" x="720" y="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
