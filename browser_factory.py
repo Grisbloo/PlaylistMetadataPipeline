@@ -1,30 +1,26 @@
-from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from seleniumbase import Driver
 
 class BrowserFactory:
-    #This prevents python from making the function about itself and makes it a tool to be used
     @staticmethod
-    def create_driver(is_headless=True, download_folder_path =None):
-        edge_options = Options()
-        #This prevents a ui from appearing when using the browser
-        edge_options.add_argument("--headless")
-        #Forces the browser to create a specific window size where all buttons are visible
-        edge_options.add_argument("--window-size=1920,1080")
-        #Removal of the automation flags and banners
-        edge_options.add_argument("--disable-blink-features=AutomationControlled")
-        edge_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        edge_options.add_experimental_option("useAutomationExtension", False)
-        #This prevents the gpu from makign the webpage draw faster when using the browser
-        edge_options.add_argument("--disable-gpu")
-        #Allow edge to run normally when using the browser
-        edge_options.add_argument("--no-sandbox")
-        prefs = {
-            "download.default_directory": download_folder_path,
-            "download.prompt_for_download": False,
-        }
-        edge_options.add_experimental_option("prefs", prefs)
-        driver = webdriver.Edge(options=edge_options)
-        #Removal of the Webdriver fingerprint that Cloudflare uses to detect automation
-        driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-            "source": "object.defineProperty(navigator, 'webdriver', {get: () => undefined})"})
+    def create_driver(is_headless=False, download_folder_path=None):
+        # Driver automatically handles the anti-detect masking (uc=True)
+        # headless2 is the stealth headless mode (avoids instant WAF bans)
+        driver = Driver(
+            uc=True,
+            incognito=True, 
+            headless2=is_headless, 
+            window_size="1920,1080"
+        )
+        
+        # Safely route downloads without triggering automation flags
+        if download_folder_path:
+            driver.execute_cdp_cmd(
+                "Browser.setDownloadBehavior",
+                {
+                    "behavior": "allow",
+                    "downloadPath": download_folder_path,
+                    "eventsEnabled": True
+                }
+            )
+            
         return driver
