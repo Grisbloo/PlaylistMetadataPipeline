@@ -11,9 +11,14 @@ import shutil
 
 # Test playlist: https://open.spotify.com/playlist/0FXuMc11GXo2P3ddHnuTvf
 
-def main ():
-    #input allows command line input
-    playlist_link = input("Spotify playlist or song URL: ")
+def run_pipeline (playlist_link, log_callback):
+    #This sends text to the terminal and the GUI
+    def system_log(message):
+        print(message)
+        log_callback(message)
+    #Print we are ready to take a users playlist link
+    system_log("System Ready. Waiting for URL...")
+    #We don't need the input line that we once had anymore because the gui will give that to the rest of the scraper rather than reading it from the terminal
     #turning on the database
     storage_manager.initialize_database()
     #grab the folder to download to
@@ -36,7 +41,7 @@ def main ():
         except Exception as e:
             # The Black Box Recorder
             driver.save_screenshot("crash_report.png")
-            print("CRITICAL: Element not found. Screenshot saved to crash_report.png")
+            system_log("CRITICAL: Element not found. Screenshot saved to crash_report.png")
             raise e
         #click on the search bar
         search_bar.click()
@@ -58,7 +63,7 @@ def main ():
     finally:
         driver.quit()
     if downloaded_file_path is None:
-        print("Download timed out.")
+        system_log("Download timed out.")
         return
     
     # Now we have the downloaded file, lets move it into the folder
@@ -100,4 +105,4 @@ def wait_for_download(download_folder_path):
     #the file was not found in the 30 seconds 
 
 if __name__ == "__main__":
-    main()
+    run_pipeline()
