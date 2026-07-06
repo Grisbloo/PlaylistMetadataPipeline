@@ -39,9 +39,8 @@ def log_track(song_id, title, artist, album, year, duration, isrc, downloaded):
     INSERT OR IGNORE INTO Log (SongId, Title, Artist, Album, Year, Duration, ISRC, Downloaded)
                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)              
     """, (song_id, title, artist, album, year, duration, isrc, downloaded))
-    if (cursor.rowcount == 1):
-        print(f"{title} was successfully added")
-    else:
-        print(f"{title} is a duplicate and was skipped")
+    was_added = (cursor.rowcount == 1)
+    
+    return was_added  # Return True if the track was added, False if it was ignored (duplicate)
     connection.commit()
     connection.close()

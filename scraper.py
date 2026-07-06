@@ -89,6 +89,13 @@ def run_pipeline (playlist_link, log_callback):
             isrc = row["ISRC"]
             downloaded = False
             storage_manager.log_track(song_id, title, artist, album, year, duration, isrc, downloaded)
+
+            is_new_track = storage_manager.log_track(song_id, title, artist, album, year, duration, isrc, downloaded)
+            if is_new_track:
+                system_log(f"{title} was successfully added to the database.")
+            else:
+                system_log(f"{title} is a duplicate and was skipped.")
+
 def wait_for_download(download_folder_path):
     i = 0
     while(i < 30):
