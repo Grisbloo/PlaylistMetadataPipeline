@@ -2,7 +2,7 @@ from seleniumbase import Driver
 
 class BrowserFactory:
     @staticmethod
-    def create_driver(is_headless=False, download_folder_path=None):
+    def create_driver(is_headless=True, download_folder_path=None):
         # Driver automatically handles the anti-detect masking (uc=True)
         # headless2 is the stealth headless mode (avoids instant WAF bans)
         driver = Driver(
