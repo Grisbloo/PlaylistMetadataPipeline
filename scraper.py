@@ -17,7 +17,7 @@ def run_pipeline (playlist_link, log_callback):
         print(message)
         log_callback(message)
     #Print we are ready to take a users playlist link
-    system_log("System Ready. Waiting for URL...")
+    #system_log("System Ready. Waiting for URL...")
     #We don't need the input line that we once had anymore because the gui will give that to the rest of the scraper rather than reading it from the terminal
     #turning on the database
     storage_manager.initialize_database()
@@ -88,7 +88,6 @@ def run_pipeline (playlist_link, log_callback):
             duration = duration_to_sectonds(row["Duration"])
             isrc = row["ISRC"]
             downloaded = False
-            storage_manager.log_track(song_id, title, artist, album, year, duration, isrc, downloaded)
 
             is_new_track = storage_manager.log_track(song_id, title, artist, album, year, duration, isrc, downloaded)
             if is_new_track:

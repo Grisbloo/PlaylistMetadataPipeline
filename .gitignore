@@ -1,0 +1,35 @@
+# =========================
+# PyInstaller Build Files
+# =========================
+/build/
+/dist/
+*.spec
+
+# =========================
+# Local Data & Scraper Output
+# =========================
+# Ignore the SQLite database
+*.db
+*.sqlite3
+
+# Ignore the temporary CSV files and the downloads folder
+/downloads/
+*.csv
+crash_report.png
+
+# =========================
+# Python Caches & Environments
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+/venv/
+/env/
+.env
+
+# =========================
+# IDE & System Files
+# =========================
+.vscode/
+.idea/
+.DS_Store

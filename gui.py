@@ -68,7 +68,7 @@ class SpotifyMetaDataExtractor(ctk.CTk):
         self.url_entry.configure(state="disabled")  # Disable the entry to prevent changes during processing
         self.progress_bar.start() #Start the bar bouncing back and forth to give the illusion of speed
         # Run the scraper in a separate thread to prevent blocking the GUI
-        thread = threading.Thread(target=scraper.run_pipeline, args=(url, self.write_to_status_box))
+        thread = threading.Thread(target=self.background_task, args=(url,))
         thread.start()
     
     def background_task(self, url):
