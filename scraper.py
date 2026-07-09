@@ -8,8 +8,19 @@ import os
 import time
 import pyautogui
 import shutil
+import subprocess
 
 # Test playlist: https://open.spotify.com/playlist/0FXuMc11GXo2P3ddHnuTvf
+
+def kill_drivers():
+    #Kill all instances of chromedriver and uc_driver.
+    try:
+        # For Windows
+        subprocess.run(["taskkill /f /im chromedriver.exe"], shell=True, capture_output=True)
+        subprocess.run(["taskkill /f /im uc_driver.exe"], shell=True, capture_output=True)
+    except subprocess.CalledProcessError as e:
+        #Don't worry if the drivers cannot be killed assume they will
+        pass
 
 def run_pipeline (playlist_link, log_callback):
     #This sends text to the terminal and the GUI
@@ -62,6 +73,8 @@ def run_pipeline (playlist_link, log_callback):
         downloaded_file_path = wait_for_download(windows_download_folder)
     finally:
         driver.quit()
+        #Make sure the drivers are gone to prevent unwanted errors
+        kill_drivers()
     if downloaded_file_path is None:
         system_log("Download timed out.")
         return

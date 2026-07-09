@@ -1,7 +1,7 @@
 import sqlite3;
 
 def initialize_database():
-    connection = sqlite3.connect("MetaDataLog.db")
+    connection = sqlite3.connect("MetaDataLog.db", timeout=10)
     #Cursor is like a messenger
     cursor = connection.cursor()
     cursor.execute("""
@@ -30,7 +30,7 @@ def initialize_database():
     connection.close()
 
 def log_track(song_id, title, artist, album, year, duration, isrc, downloaded):
-    connection = sqlite3.connect("MetaDataLog.db")
+    connection = sqlite3.connect("MetaDataLog.db",timeout=10)
     #Cursor is like a messenger
     cursor = connection.cursor()
     # Pushing the values from the python *ignoring how the song is formatted if its weirdly formatted* into the table
@@ -41,6 +41,7 @@ def log_track(song_id, title, artist, album, year, duration, isrc, downloaded):
     """, (song_id, title, artist, album, year, duration, isrc, downloaded))
     was_added = (cursor.rowcount == 1)
     
-    return was_added  # Return True if the track was added, False if it was ignored (duplicate)
     connection.commit()
     connection.close()
+    return was_added  # Return True if the track was added, False if it was ignored (duplicate)
+

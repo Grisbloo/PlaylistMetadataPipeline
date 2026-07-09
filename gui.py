@@ -63,6 +63,9 @@ class SpotifyMetaDataExtractor(ctk.CTk):
         if not url:
             self.write_to_status_box("ERROR: Please enter a valid Spotify URL.")
             return
+        if "playlist"not in url.lower():
+            self.write_to_status_box("ERROR: The URL does not appear to be a Spotify playlist.")
+            return
         self.write_to_status_box("Starting metadata extraction...")
         self.start_button.configure(state="disabled")  # Disable the button to prevent multiple clicks
         self.url_entry.configure(state="disabled")  # Disable the entry to prevent changes during processing
